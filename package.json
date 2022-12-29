@@ -1,0 +1,39 @@
+{
+  "name": "emart",
+  "version": "1.0.0",
+  "description": "a Mern e-commerce site",
+  "main": "server.js",
+  "scripts": {
+    "start": "nodemon backend/server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Coderamrin/emart.git"
+  },
+  "keywords": [
+    "e-commerce",
+    "MERN",
+    "e-commerce",
+    "CRUD",
+    "online",
+    "shop"
+  ],
+  "author": "coderamrin",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Coderamrin/emart/issues"
+  },
+  "homepage": "https://github.com/Coderamrin/emart#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "jsonwebtoken": "^9.0.0",
+    "mongoose": "^6.8.2"
+  },
+  "devDependencies": {
+    "dotenv": "^16.0.3",
+    "nodemon": "^2.0.20"
+  }
+}

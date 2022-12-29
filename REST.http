@@ -1,0 +1,28 @@
+POST http://localhost:5000/api/user/register
+Content-Type: application/json
+
+{
+    "name": "dave",
+    "email": "dave@gmail.com",
+    "password": "12345"
+}
+
+
+###
+POST http://localhost:5000/api/user/login
+Content-Type: application/json
+
+{
+    "email": "jhon@gmail.com",
+    "password": "12345"
+}
+
+###
+PUT http://localhost:5000/api/user/edit
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzYWQxYzI3ZTU3MmZjZjQ5MDU0MWQ4NCIsImlhdCI6MTY3MjI5MDEyNCwiZXhwIjoxNjc0ODgyMTI0fQ.nWWbHY0JPgEDD-Z6NYYTjj3wcLx1CfkX-CgKYkFAvLc
+
+
+{
+    "description": "Jhon Doe is a webdeveloper and proffessional seller"
+}
