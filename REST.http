@@ -26,3 +26,19 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzYWQxYzI3Z
 {
     "description": "Jhon Doe is a webdeveloper and proffessional seller"
 }
+
+###
+GET http://localhost:5000/api/products/
+
+
+###
+POST http://localhost:5000/api/products/
+
+
+
+
+
+
+
+
+

@@ -19,7 +19,7 @@ const connectDB = async () => {
     console.log({ message: error.message });
   }
 };
- 
+
 connectDB();
 
 app.get("/", (req, res) => {
@@ -28,8 +28,11 @@ app.get("/", (req, res) => {
 
 // server initialization
 const userRoutes = require("./routes/users");
+const productsRoutes = require("./routes/products");
 app.use("/api/user", userRoutes);
- 
+app.use("/api/products", productsRoutes);
+
 app.listen("5000", () => {
   console.log("app running on port 5k");
 });
+
