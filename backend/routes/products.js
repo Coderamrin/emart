@@ -39,7 +39,7 @@ router.get("/my-products", protect, async (req, res) => {
 });
 
 // Add product
-router.post("/new-product", async (req, res) => {
+router.post("/new-product", protect, async (req, res) => {
   const { title, price, description, category, images } = req.body;
 
   if (!title || !price || !description || !category) {
@@ -71,6 +71,66 @@ router.post("/new-product", async (req, res) => {
 });
 
 // Update product
+// Add product
+router.put("/update-product/:id", protect, async (req, res) => {
+  const { id } = req.params;
+  const product = await Product.findById(id);
+
+  if (!product) {
+    return res.status(404).json({ message: "Product not found." });
+  }
+
+  if (!req.user) {
+    return res
+      .status(400)
+      .json({ message: "Please login before updating product" });
+  }
+
+  if (product.seller.toString() !== req.user.id) {
+    return res.status(400).json({ message: "Seller not authorized" });
+  }
+
+  try {
+    const updatedProduct = await Product.findOneAndUpdate(
+      { _id: id },
+      req.body,
+      {
+        new: true,
+      }
+    );
+
+    res.status(200).json(updatedProduct);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+});
+
 // Delete product
+router.delete("/delete-product/:id", protect, async (req, res) => {
+  const { id } = req.params;
+
+  const product = await Product.findById(id);
+
+  if (!product) {
+    return res.status(404).json({ message: "Product not found." });
+  }
+
+  if (!req.user) {
+    return res
+      .status(400)
+      .json({ message: "Please login before updating product" });
+  }
+
+  if (product.seller.toString() !== req.user.id) {
+    return res.status(400).json({ message: "Seller not authorized" });
+  }
+
+  try {
+    const deleted = await Product.findByIdAndDelete(id);
+    res.status(200).json({ message: "Product deleted successfully" });
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+});
 
 module.exports = router;

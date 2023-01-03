@@ -13,7 +13,7 @@ POST http://localhost:5000/api/user/login
 Content-Type: application/json
 
 {
-    "email": "jhon@gmail.com",
+    "email": "dave@gmail.com",
     "password": "12345"
 }
 
@@ -28,17 +28,73 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzYWQxYzI3Z
 }
 
 ###
-GET http://localhost:5000/api/products/
+GET http://localhost:5000/api/products
 
 
 ###
-POST http://localhost:5000/api/products/
+POST http://localhost:5000/api/products/new-product/
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzYWQxYzI3ZTU3MmZjZjQ5MDU0MWQ4NCIsImlhdCI6MTY3MjI5MDEyNCwiZXhwIjoxNjc0ODgyMTI0fQ.nWWbHY0JPgEDD-Z6NYYTjj3wcLx1CfkX-CgKYkFAvLc
+
+
+{
+    "title": "Title of 3 product",
+    "price": 205,
+    "description": "ddddddddddddddddddddddd",
+    "category": "sec category",
+    "images": [
+        "one image"
+    ]
+}
+
+###
+PUT http://localhost:5000/api/products/update-product/63b121afde8585ebbe8ae4a5
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzYWQxYzI3ZTU3MmZjZjQ5MDU0MWQ4NCIsImlhdCI6MTY3MjI5MDEyNCwiZXhwIjoxNjc0ODgyMTI0fQ.nWWbHY0JPgEDD-Z6NYYTjj3wcLx1CfkX-CgKYkFAvLc
+
+
+{
+    "title": "Updated product"
+}
+
+
+###
+DELETE  http://localhost:5000/api/products/delete-product/63b121afde8585ebbe8ae4a5
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzYWQxYzI3ZTU3MmZjZjQ5MDU0MWQ4NCIsImlhdCI6MTY3MjI5MDEyNCwiZXhwIjoxNjc0ODgyMTI0fQ.nWWbHY0JPgEDD-Z6NYYTjj3wcLx1CfkX-CgKYkFAvLc
 
 
 
+###
+GET http://localhost:5000/api/cart/
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzYWQyYTYzOTk1Y2JkY2QxNTM2Mzc2MSIsImlhdCI6MTY3MjY0MzIwNywiZXhwIjoxNjc1MjM1MjA3fQ.cSMwm45H6SqZfRaPuG0ufGCbD-oVb85OA1vdXPLzDNw
+
+###
+POST http://localhost:5000/api/cart/add/
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzYWQyYTYzOTk1Y2JkY2QxNTM2Mzc2MSIsImlhdCI6MTY3MjY0MzIwNywiZXhwIjoxNjc1MjM1MjA3fQ.cSMwm45H6SqZfRaPuG0ufGCbD-oVb85OA1vdXPLzDNw
+
+{ 
+    "productId": "63b2c619505626c963c45ee7",
+    "quantity": 3
+}
 
 
 
+###
+PUT http://localhost:5000/api/cart/63b28298af350ba02732514b
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzYWQyYTYzOTk1Y2JkY2QxNTM2Mzc2MSIsImlhdCI6MTY3MjY0MzIwNywiZXhwIjoxNjc1MjM1MjA3fQ.cSMwm45H6SqZfRaPuG0ufGCbD-oVb85OA1vdXPLzDNw
 
+
+{
+    "productId": "63b1278e4e367690401d5f96",
+    "quantity": 7
+}
+
+###
+DELETE http://localhost:5000/api/cart/delete/63b331adf85a791e0ad3b4eb
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzYWQyYTYzOTk1Y2JkY2QxNTM2Mzc2MSIsImlhdCI6MTY3MjY0MzIwNywiZXhwIjoxNjc1MjM1MjA3fQ.cSMwm45H6SqZfRaPuG0ufGCbD-oVb85OA1vdXPLzDNw
 
 

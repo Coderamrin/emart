@@ -29,10 +29,12 @@ app.get("/", (req, res) => {
 // server initialization
 const userRoutes = require("./routes/users");
 const productsRoutes = require("./routes/products");
+const cartRoutes = require("./routes/carts");
+
 app.use("/api/user", userRoutes);
 app.use("/api/products", productsRoutes);
+app.use("/api/cart", cartRoutes);
 
 app.listen("5000", () => {
   console.log("app running on port 5k");
 });
-
