@@ -1,0 +1,65 @@
+.sidebar {
+@apply bg-gray-900 text-white w-[250px] p-5 h-screen fixed flex flex-col
+
+}
+
+.sidebar-links a {
+  @apply block font-medium mb-2 py-2 border-b-2 border-gray-800 hover:border-gray-700
+
+}
+
+.btn {
+  @apply px-4 py-2 text-white
+}
+
+.btn-primary {
+  @apply bg-blue-700 hover:bg-blue-900 text-white
+}
+
+.btn-danger {
+  @apply bg-orange-600 hover:bg-orange-700
+}
+
+
+/* form style */
+.form {
+  @apply py-10 w-[40%] px-5;
+}
+
+input, label {
+  @apply block mb-2
+}
+
+.form-group {
+  margin-bottom: 1rem; 
+}
+
+.form-group input,
+.form-group textarea {
+  border: 1px solid lightblue;
+  padding: .5rem 1rem;
+  margin-bottom: .5rem;
+  width: 100%;
+}
+
+/* hero style */
+.hero {
+  background: url("../src//assets/hero-bg.png") center no-repeat;
+  background-size: 100%;
+  @apply text-center py-[13rem]
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

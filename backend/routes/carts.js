@@ -16,6 +16,15 @@ router.get("/", async (req, res) => {
 });
 
 // get cart by user id
+router.get("/find/:id", async (req, res) => {
+  try {
+    const carts = await Cart.find({ user: req.params.id });
+
+    res.status(200).json(carts);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+});
 
 // add to cart
 router.post("/add", protect, async (req, res) => {

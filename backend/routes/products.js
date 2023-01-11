@@ -6,21 +6,13 @@ const { protect } = require("../middleware/authMiddleware");
 
 // Get all products
 router.get("/", async (req, res) => {
+
   try {
-    const projects = await Product.find();
+    const projects = await Product.find().sort({
+      createdAt: -1,
+    });
 
     res.status(200).json(projects);
-  } catch (error) {
-    res.status(400).json({ message: error.message });
-  }
-});
-
-// Get products by id
-router.get("/:id", async (req, res) => {
-  try {
-    const project = await Product.findById({ _id: req.params.id });
-
-    res.status(200).json(project);
   } catch (error) {
     res.status(400).json({ message: error.message });
   }
@@ -32,7 +24,19 @@ router.get("/my-products", protect, async (req, res) => {
     const products = await Product.find({ seller: req.user.id }).sort({
       createdAt: -1,
     });
+
     res.status(200).json(products);
+  } catch (error) {
+    res.status(400).json({ message: error.message });
+  }
+});
+
+// Get products by id
+router.get("/:id", async (req, res) => {
+  try {
+    const product = await Product.findById({ _id: req.params.id });
+
+    res.status(200).json(product);
   } catch (error) {
     res.status(400).json({ message: error.message });
   }
@@ -127,7 +131,7 @@ router.delete("/delete-product/:id", protect, async (req, res) => {
 
   try {
     const deleted = await Product.findByIdAndDelete(id);
-    res.status(200).json({ message: "Product deleted successfully" });
+    res.status(200).json({ id: deleted._id });
   } catch (error) {
     res.status(500).json({ message: error.message });
   }

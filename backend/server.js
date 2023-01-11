@@ -8,6 +8,13 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cors());
 
+// app.get("/*", (req, res) => {
+//   res.sendFile(
+//     path.join(__dirname, "../frontend/build/index.html"),
+//     (err) => err && res.status(500).send(err)
+//   );
+// });
+
 //Db Config
 const connectDB = async () => {
   try {
