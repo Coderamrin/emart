@@ -40,3 +40,22 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzYWQyYTYzO
 DELETE  http://localhost:5000/api/products/delete-product/63ba2b317d1f5135cb44e36f
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzYWQyYTYzOTk1Y2JkY2QxNTM2Mzc2MSIsImlhdCI6MTY3MzE0MDUzMywiZXhwIjoxNjc1NzMyNTMzfQ.Tm26ca6a5qeR2nvsfs-nfoh16hOmUrswwKXPQOjJq9A
 
+
+###
+GET http://localhost:5000/api/products/
+
+###
+GET http://localhost:5000/api/cart0/
+
+
+###
+POST http://localhost:5000/api/cart/add
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzYWQyYTYzOTk1Y2JkY2QxNTM2Mzc2MSIsImlhdCI6MTY3MzU3OTExMCwiZXhwIjoxNjc2MTcxMTEwfQ.mtN78zUd2Fg5KbskpYkQl5CP77B3G-J63SL4HTDABZA
+
+
+{
+    "productId": "63ba3e702ef2e8766f7b3690",
+    "quantity": 7
+}
+

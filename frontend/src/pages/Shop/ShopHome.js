@@ -1,8 +1,15 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import ShopLayout from "../../components/layouts/ShopLayout";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { getProducts } from "../../features/shop/productSlice";
+import ProductItem from "../../components/Shop/ProductItem";
+import Loading from "../../components/Loading";
+import {
+  AiOutlineAlipayCircle,
+  AiOutlineAlert,
+  AiOutlineAccountBook,
+} from "react-icons/ai";
 
 const ShopHome = () => {
   const categoryData = [
@@ -28,6 +35,8 @@ const ShopHome = () => {
     },
   ];
 
+  const [newArrival, setNewArrival] = useState([]);
+
   const dispatch = useDispatch();
 
   const { products } = useSelector((state) => state.products);
@@ -37,7 +46,7 @@ const ShopHome = () => {
       dispatch(getProducts());
     }
 
-    console.log(products.slice(-6));
+    setNewArrival(products.slice(-10));
   }, [products, dispatch]);
 
   return (
@@ -73,10 +82,57 @@ const ShopHome = () => {
           ))}
         </section>
 
-        <section className="new-arrival py-10">
-          <h2 className="text-center text-5xl font-bold">
+        <section className="new-arrival py-20 flex flex-col justify-center">
+          <h2 className="text-center text-5xl font-bold pb-10">
             New <br /> Arrival
           </h2>
+
+          <div className="new-arrival-grid flex flex-wrap justify-center gap-10">
+            {newArrival.length > 0 ? (
+              newArrival.map((product, i) => (
+                <ProductItem product={product} key={i} />
+              ))
+            ) : (
+              <Loading />
+            )}
+          </div>
+
+          <Link to={"/shop"} className="px-7 py-4 font-lg btn-primary mx-auto">
+            Browse More
+          </Link>
+        </section>
+
+        <section className="features flex md:justify-center gap-10 p-20 mb-16 bg-gray-200">
+          <div>
+            <AiOutlineAlipayCircle size={60} />
+            <h4 className="text-lg font-bold py-4">Fast Delivery</h4>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni
+              similique corporis, dolorem ipsam ratione dignissimos amet. Odit
+              quasi sunt natus harum, dolorem assumenda, minus quos placeat
+              laborum maxime tempora dignissimos.
+            </p>
+          </div>
+          <div>
+            <AiOutlineAccountBook size={60} />
+            <h4 className="text-lg font-bold py-4">Fast Delivery</h4>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni
+              similique corporis, dolorem ipsam ratione dignissimos amet. Odit
+              quasi sunt natus harum, dolorem assumenda, minus quos placeat
+              laborum maxime tempora dignissimos.
+            </p>
+          </div>
+          <div>
+            <AiOutlineAlert size={60} />
+            <h4 className="text-lg font-bold py-4">Fast Delivery</h4>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni
+              similique corporis, dolorem ipsam ratione dignissimos amet. Odit
+              quasi sunt natus harum, dolorem assumenda, minus quos placeat
+              laborum maxime tempora dignissimos.
+            </p>
+          </div>
         </section>
       </ShopLayout>
     </>

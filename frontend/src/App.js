@@ -15,6 +15,13 @@ import Register from "./pages/Auth/Register";
 
 // shop components
 import ShopHome from "./pages/Shop/ShopHome";
+import Shop from "./pages/Shop/Shop";
+import Product from "./pages/Shop/Product";
+import Checkout from "./pages/Shop/Checkout";
+import OrderPlaced from "./pages/Shop/OrderPlaced";
+
+// cart
+import Cart from "./pages/Shop/Cart";
 
 function App() {
   return (
@@ -28,6 +35,13 @@ function App() {
         <Route path="/register" element={<Register />} />
 
         <Route path="/" element={<ShopHome />} />
+        <Route path="/shop" element={<Shop />} />
+        <Route path="/shop/product/:id" element={<Product />} />
+
+        <Route path="/cart" element={<Cart />} />
+        <Route path="/checkout" element={<Checkout />} />
+
+        <Route path="/order-placed" element={<OrderPlaced />} />
       </Routes>
 
       <ToastContainer />

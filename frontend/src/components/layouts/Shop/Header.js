@@ -19,7 +19,7 @@ const Header = () => {
   };
 
   return (
-    <header className=" px-5 py-5 text-gray-900">
+    <header className=" px-5 py-5 text-gray-900 shadow-bottom">
       <div className="container mx-auto flex justify-between items-center">
         <Link to={"/"} className="logo font-bold text-2xl">
           Emart
@@ -27,10 +27,10 @@ const Header = () => {
 
         {/* desktop nav */}
         <nav className="hidden md:flex items-center">
-          <Link className="px-3" to="/">
+          <Link className="px-3" to="/shop">
             Shop
           </Link>
-          <Link className="px-3" to="/">
+          <Link className="px-3" to="/cart">
             Cart
           </Link>
           <Link className="px-3" to="/">
